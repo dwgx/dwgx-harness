@@ -41,3 +41,8 @@ apps/web/dist/
 worktrees/
 .agents/worktrees/
 .typert-*/
+# dwgx-harness local build (never commit)
+desktop/**/bin/
+desktop/**/obj/
+desktop/**/*.user
+desktop/**/*.exe

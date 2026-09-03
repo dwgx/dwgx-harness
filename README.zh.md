@@ -1,3 +1,5 @@
+> **dwgx-harness** 是 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 的第三方魔改。
+
 # DeepSeek Harness
 
 [English](README.md) | 中文

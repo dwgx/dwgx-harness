@@ -1,3 +1,5 @@
+> **dwgx-harness** is a third-party modification of [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness).
+
 # DeepSeek Harness
 
 English | [中文](README.zh.md)
