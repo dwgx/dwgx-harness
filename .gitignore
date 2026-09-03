@@ -46,3 +46,4 @@ desktop/**/bin/
 desktop/**/obj/
 desktop/**/*.user
 desktop/**/*.exe
+.codegraph/

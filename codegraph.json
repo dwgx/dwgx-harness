@@ -1,0 +1,22 @@
+{
+  "exclude": [
+    "node_modules/",
+    "apps/web/dist/",
+    "desktop/**/bin/",
+    "desktop/**/obj/",
+    "coverage/",
+    "python/**/__pycache__/",
+    "python/**/.pytest_cache/",
+    ".artifacts/",
+    ".dsh-build/",
+    ".codegraph/",
+    ".git/"
+  ],
+  "deprioritize": [
+    "packages/**/tests/",
+    "examples/",
+    "python/",
+    "vendor/",
+    "docs/"
+  ]
+}
