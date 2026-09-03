@@ -1,0 +1,5 @@
+# Owner host plugins for this web profile (not community npm).
+# Applied after bundle layers. Relative names resolve from this file's directory.
+- insert:
+    - id: owner-session-forget
+      name: ../../plugins/owner-session-forget/index.js
