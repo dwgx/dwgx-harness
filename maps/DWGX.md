@@ -1,6 +1,6 @@
 # dwgx map
 
-Read this, then `AGENTS.md`, then `.agent/HANDOFF.md`. Official architecture: `docs/architecture.md`.
+Read this, then `maps/SITUATIONS.md`, then `AGENTS.md`, then `.agent/HANDOFF.md`. Official architecture: `docs/architecture.md`.
 
 This tree is a third-party modification of DeepSeek Harness. dwgx in source and host plugins. Do not patch `node_modules`.
 
