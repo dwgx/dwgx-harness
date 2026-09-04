@@ -2,8 +2,7 @@ import { access, rm, writeFile } from "node:fs/promises";
 import { constants as fsConstants, existsSync, readFileSync } from "node:fs";
 import { spawn } from "node:child_process";
 import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
-import { defineTool } from "../../profiles/node_modules/@deepseek-ai/dsh-tools/lib/index.js";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import {
 	isUnderSessionsRoot,
 	normalizePrefs,
@@ -13,6 +12,27 @@ import {
 	WHALE_RESTART_REASON,
 	withoutArchived
 } from "./parse.js";
+
+const HERE = dirname(fileURLToPath(import.meta.url));
+
+function dshToolsEntry() {
+	const home = process.env.DSH_HOME ?? "D:\\Software\\dsh";
+	const candidates = [
+		join(HERE, "../../packages/core/tools/src/index.ts"),
+		join(HERE, "../../packages/core/tools/lib/index.js"),
+		join(home, "profiles/node_modules/@deepseek-ai/dsh-tools/src/index.ts"),
+		join(home, "profiles/node_modules/@deepseek-ai/dsh-tools/lib/index.js"),
+		join(HERE, "../../profiles/node_modules/@deepseek-ai/dsh-tools/src/index.ts"),
+		join(HERE, "../../profiles/node_modules/@deepseek-ai/dsh-tools/lib/index.js")
+	];
+	const hit = candidates.find((path) => existsSync(path));
+	if (!hit) {
+		throw new Error(`dsh-tools not found. Tried:\n${candidates.join("\n")}`);
+	}
+	return pathToFileURL(hit).href;
+}
+
+const { defineTool } = await import(dshToolsEntry());
 
 const name = "owner-session-forget";
 const inject = [

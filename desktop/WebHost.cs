@@ -58,7 +58,7 @@ internal sealed class WebHost : IDisposable
 		{
 			FileName = node,
 			Arguments = $"\"{bin}\" web --no-open --port {Paths.WebPort}",
-			WorkingDirectory = Paths.Workspace,
+			WorkingDirectory = Directory.Exists(Paths.RepoRoot) ? Paths.RepoRoot : Paths.Workspace,
 			UseShellExecute = false,
 			CreateNoWindow = true,
 			WindowStyle = ProcessWindowStyle.Hidden,

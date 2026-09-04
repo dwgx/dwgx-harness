@@ -23,7 +23,9 @@ Read with `maps/DWGX.md`. Progress: `.agent/HANDOFF.md`.
 | Index missing | `codegraph init -y` in this repo. Never `codegraph init -f` on home. |
 | Index stale after TS/JS/C# edits | `codegraph sync` here. |
 | Explore returned nothing useful | Fail-open to rg / Read. Do not invent symbols. |
-| Querying vrc-dcc / Kaguya / origin by habit | Wrong graph. Pass this repo path. |
+| `pnpm run` dies on lefthook / `core.hooksPath` | This PC uses agent-system hooks. `CI=true pnpm run build`. Never `DSH_LEFTHOOK_ALLOW_HOOKS_PATH_OVERRIDE=1`. If lefthook renamed `~\.agent-system\git-hooks\*.old`, restore those files. |
+| Source `dsh web` says run `pnpm run build` | `CI=true pnpm run build` in this repo. Then `node --import tsx/esm apps/cli/src/bin.ts web --no-open --port 3081` to smoke without taking 3080. |
+| Source boot vs daily 3080 | Daily stays `dsh-cli` on **3080** until cutover. New tree smokes on **3081**. |
 
 ## Which copy is live
 

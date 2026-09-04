@@ -47,3 +47,4 @@ desktop/**/obj/
 desktop/**/*.user
 desktop/**/*.exe
 .codegraph/
+.npmrc

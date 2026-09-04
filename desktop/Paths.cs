@@ -16,6 +16,11 @@ internal static class Paths
 			? ws
 			: @"C:\Agent";
 
+	internal static string RepoRoot =>
+		Environment.GetEnvironmentVariable("DWGX_HARNESS_ROOT") is { Length: > 0 } root
+			? root
+			: @"D:\Project\dwgx-harness";
+
 	internal static string LogDir => Path.Combine(DshHome, "logs");
 
 	internal static string WebViewUserData => Path.Combine(DshHome, "webview2-profile");
@@ -47,6 +52,9 @@ internal static class Paths
 	{
 		var fromEnv = Environment.GetEnvironmentVariable("DWGX_DSH_BIN");
 		if (!string.IsNullOrWhiteSpace(fromEnv) && File.Exists(fromEnv)) return fromEnv;
+
+		var built = Path.Combine(RepoRoot, @"apps\cli\lib\bin.js");
+		if (File.Exists(built)) return built;
 
 		var npm = @"D:\Software\dsh-cli\node_modules\@deepseek-ai\dsh\lib\bin.js";
 		if (File.Exists(npm)) return npm;
